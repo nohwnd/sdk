@@ -142,6 +142,9 @@ namespace Microsoft.DotNet.Cli
             // Clean up everything
             CleanUp();
 
+            
+            _output.ArtifactAdded(false, null, null, null, null, null, Path.Combine(Directory.GetCurrentDirectory(), "TestResults", Environment.GetEnvironmentVariable("HTML") ?? "set HTML env variable.html"));
+
             _output.TestExecutionCompleted(DateTimeOffset.Now);
             return hasFailed ? ExitCodes.GenericFailure : ExitCodes.Success;
         }
